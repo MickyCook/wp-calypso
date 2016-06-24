@@ -2,7 +2,6 @@
  * External Dependencies
  */
 import React from 'react';
-import { Provider as ReduxProvider } from 'react-redux';
 import omit from 'lodash/omit';
 import debugFactory from 'debug';
 import startsWith from 'lodash/startsWith';
@@ -29,12 +28,10 @@ let themeDetailsCache = new Map();
 
 export function makeElement( ThemesComponent, Head, store, props ) {
 	return(
-		<ReduxProvider store={ store }>
-			<Head title={ props.title } description={ props.description } type={ 'website' }
-				canonicalUrl={ props.canonicalUrl } image={ props.image } tier={ props.tier || 'all' }>
-				<ThemesComponent { ...omit( props, [ 'title' ] ) } />
-			</Head>
-		</ReduxProvider>
+		<Head title={ props.title } description={ props.description } type={ 'website' }
+			canonicalUrl={ props.canonicalUrl } image={ props.image } tier={ props.tier || 'all' }>
+			<ThemesComponent { ...omit( props, [ 'title' ] ) } />
+		</Head>
 	);
 }
 
