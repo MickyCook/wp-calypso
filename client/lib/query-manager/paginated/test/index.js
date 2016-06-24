@@ -12,10 +12,11 @@ import PaginatedQueryManager from '../';
 /**
  * Module constants
  */
-const TestCustomQueryManager = class TermQueryManager extends PaginatedQueryManager {};
-TestCustomQueryManager.DEFAULT_QUERY = {
-	number: 25
-};
+class TestCustomQueryManager extends PaginatedQueryManager {
+	static DEFAULT_QUERY = {
+		number: 25
+	};
+}
 
 describe( 'PaginatedQueryManager', () => {
 	let sandbox, manager;
