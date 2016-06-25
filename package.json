@@ -137,12 +137,16 @@
     "test-client": "NODE_ENV=test NODE_PATH=test:client TEST_ROOT=client test/runner.js",
     "test-server": "NODE_ENV=test NODE_PATH=test:server:client TEST_ROOT=server test/runner.js",
     "test-test": "NODE_ENV=test NODE_PATH=test:client TEST_ROOT=test test/runner.js",
+    "test-client:watch": "./node_modules/.bin/chokidar 'server/**/*.(js|jsx)' 'client/**/*.(js|jsx)' 'test/**/*.(js|jsx)' -c 'pkill node -f runner.js; npm run test-client ${TEST_PATH}'",
+    "test-server:watch": "./node_modules/.bin/chokidar 'server/**/*.(js|jsx)' 'client/**/*.(js|jsx)' 'test/**/*.(js|jsx)' -c 'pkill node -f runner.js; npm run test-server ${TEST_PATH}'",
+    "test-test:watch": "./node_modules/.bin/chokidar 'server/**/*.(js|jsx)' 'client/**/*.(js|jsx)' 'test/**/*.(js|jsx)' -c 'pkill node -f runner.js; npm run test-test ${TEST_PATH}'",
     "lint": "bin/run-lint"
   },
   "devDependencies": {
     "babel-eslint": "6.0.4",
     "blanket": "1.1.6",
     "chai": "2.0.0",
+    "chokidar-cli": "1.2.0",
     "deep-freeze": "0.0.1",
     "enzyme": "2.2.0",
     "esformatter": "0.7.3",
